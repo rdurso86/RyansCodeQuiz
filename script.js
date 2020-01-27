@@ -8,7 +8,7 @@ const viewHighscoresBtn = $("#viewHighscores");
 const questionsPage = $(".questionsPage");
 const timeRemaining = $(".timeRemaining");
 const questionsContainer = $(".questionsContainer");
-const question = $("#question");
+const questionText = $("#question");
 const answerButtons = $("#answerButtons");
 const choice = $(".choice");
 
@@ -55,6 +55,7 @@ function initializeQuiz() {
     $(questionsPage).hide();
     $(completePage).hide();
     $(highscoresPage).hide();
+    $(startPage).show();
 };
 
 initializeQuiz();
@@ -72,6 +73,10 @@ $(startQuizBtn).on("click", function(){
     $(highscoresPage).hide();
     $(questionsPage).show();
 
+    for (let q = 0; q < questions.length; q++) {
+        $(questionText).append(questions.question);
+    };
+
     var i = 60;
 (function timer(){
     if (--i < 0) return;
@@ -83,17 +88,12 @@ $(startQuizBtn).on("click", function(){
 
 });
 
-for (let q = 0; q < questions.length; q++) {
-    //let question = questions.question;
-console.log(questions.question);
-};
+console.log(questions);
 
-//why wont this work?
+
 $(playAgainBtn).on("click", function() {
     initializeQuiz();
 });
-
-console.log(this);
 
 
 
