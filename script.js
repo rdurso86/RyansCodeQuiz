@@ -88,6 +88,10 @@ $(startQuizBtn).on("click", function(){
 
 });
 
+function nextQuestion() {
+    
+}
+
 console.log(questions);
 
 
